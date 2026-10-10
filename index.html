@@ -59,6 +59,10 @@
             overflow-x: hidden;
         }
 
+        html {
+            scroll-padding-top: 5rem;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             -webkit-text-size-adjust: 100%;
@@ -112,9 +116,9 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-slate-950 pb-20 sm:pb-0">
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-slate-950 pt-20 pb-20 sm:pb-0">
 
-    <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40">
+    <header class="fixed inset-x-0 top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-lg shadow-black/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
             <!-- Logo -->
@@ -294,9 +298,9 @@
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <span class="text-brand-400 font-extrabold text-xs uppercase tracking-widest bg-brand-950 border border-brand-800 px-4 py-1.5 rounded-full">
-                Programet yyrtare të Kimisë
+                Programet e kursit të Kimisë
             </span>
-            <h2 class="text-3xl sm:text-4xl font-black text-white">Zgjidhni Programin Tuaj të Mësimit</h2>
+            <h2 class="text-3xl sm:text-4xl font-black text-white">Zgjidhni programin tuaj të mësimit</h2>
             <p class="text-slate-400 text-sm sm:text-base">
                 Më poshtë gjeni 5 programet tona me të gjitha detajet e seancave, kohëzgjatjen e seancës dhe çmimet për secilin program.
             </p>
@@ -509,10 +513,10 @@
                 </div>
             </div>
 
-            <!-- Course Card 5 (Expanded) -->
-            <div class="glass-card rounded-3xl p-8 flex flex-col justify-between border border-brand-500/40 hover:border-brand-400 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-500/10 group md:col-span-2 lg:col-span-2">
+            <!-- Course Card 5 -->
+            <article class="glass-card rounded-3xl p-8 border border-brand-500/40 hover:border-brand-400 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-500/10 group md:col-span-2 lg:col-span-2">
                 <div>
-                    <div class="flex items-center justify-between mb-4">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
                         <span class="text-xs font-extrabold uppercase text-brand-300 bg-brand-950 px-3 py-1 rounded-full border border-brand-800">
                             Kurs kimie për universitetet
                         </span>
@@ -529,7 +533,7 @@
                         Për studentët e Universitetit të Mjekësisë (UMT), Universitetit të Tiranës (UT), Universitetit Politeknik (UPT), Universitetit Bujqësor (UBT) si dhe universiteteve private.
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-200 mb-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-200">
                         <div class="flex items-start p-3 rounded-xl bg-slate-900/80 border border-slate-800">
                             <i class="fa-solid fa-bolt text-brand-400 mr-2.5 mt-0.5 text-base"></i>
                             <span><strong>2/3 seanca në javë</strong> (në varësi të nevojave të studentit)</span>
@@ -545,18 +549,17 @@
                     </div>
                 </div>
 
-                <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between">
+                <div class="mt-6 pt-5 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
                         <span class="text-[10px] text-slate-400 uppercase font-bold block">Çmimi për seancë</span>
                         <span class="text-2xl font-black text-white price-vjetra">1000 lekë</span>
-            
                         <span class="text-xs text-brand-400 font-semibold block">(60 minuta)</span>
                     </div>
-                    <button onclick="openBookingModal('Kimi Universitare', '10 mijë lekë (të vjetra) / 1,000 ALL')" class="px-6 py-3 rounded-xl bg-brand-400 hover:bg-brand-300 text-slate-950 font-black text-xs transition-all shadow-md">
-                        Rezervo Tani
+                    <button type="button" onclick="openBookingModal('Kimi Universitare', '10 mijë lekë (të vjetra) / 1,000 ALL')" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-extrabold text-xs transition-all shadow-md">
+                        Rezervo
                     </button>
                 </div>
-            </div>
+            </article>
 
         </div>
     </section>
@@ -632,9 +635,9 @@
             
             <div class="text-center mb-12">
                 <span class="text-brand-400 font-extrabold text-xs uppercase tracking-widest bg-brand-950 border border-brand-800 px-4 py-1.5 rounded-full">
-                    Sqarime të Qarta
+                    Sqarime
                 </span>
-                <h2 class="text-3xl font-black text-white mt-3">Pyetjet e Shpeshta (FAQ)</h2>
+                <h2 class="text-3xl font-black text-white mt-3">Pyetjet e Shpeshta</h2>
             </div>
 
             <div class="space-y-4">
@@ -722,8 +725,8 @@
             <form id="bookingForm" onsubmit="submitRegistration(event)" class="space-y-4">
                 <div>
                     <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">Emri dhe Mbiemri *</label>
-                    <input id="fullName" type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-500" placeholder="P.sh. Erion Hoxha">
-                </div>
+                    <input id="fullName" type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-500" placeholder="P.sh. E">
+                </div
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -800,35 +803,35 @@
         const programsData = {
             "1": {
                 name: "1. Kurs Individual (Klasa 10-12)",
-                vjetra: "7 mijë lekë",
+                vjetra: "700 lekë",
                 reja: "700 ALL (të reja)",
                 unit: "për seancë (60 min)",
                 details: "2 seanca në javë (60 min). Trajtim i librit aktual të gjimnazit + simulime interaktive online të përshtatura me temat + ushtrime & teori shtesë."
             },
             "2": {
                 name: "2. Kurs në Grup (Klasa 10-12)",
-                vjetra: "25 mijë lekë",
+                vjetra: "2500 lekë",
                 reja: "2,500 ALL (të reja)",
                 unit: "në muaj (2 seanca/javë)",
                 details: "2 seanca në javë. Grupet 1-2 pers (40 min) / 3-5 pers (60 min). Max 5 persona online. Libri aktual + simulime + Libri 2011 për njohuri shtesë."
             },
             "3": {
                 name: "3. Fondi Pyetjeve Mjekësi e Përgjithshme",
-                vjetra: "7 mijë lekë",
+                vjetra: "700 lekë",
                 reja: "700 ALL (të reja)",
                 unit: "për seancë (60 min)",
                 details: "2 seanca në javë (60 min). Grupi 1-3 persona. I gjithë fondi i pyetjeve + Simulim i testimit të informatizuar QSHA me testim pas çdo kapitulli."
             },
             "4": {
                 name: "4. Matura Shtetërore (Kimi)",
-                vjetra: "25 mijë lekë",
+                vjetra: "2500 lekë",
                 reja: "2,500 ALL (të reja)",
                 unit: "në muaj (2 seanca/javë)",
                 details: "Fillon më 1 Mars 2027 (2 seanca/javë). Trajtohen testet e maturës 2006-2026. Grupet 1-2 pers (40 min) / 3-5 pers (60 min)."
             },
             "5": {
                 name: "5. Kimi Universitare (Përgjithshme / Organike / Analitike)",
-                vjetra: "10 mijë lekë",
+                vjetra: "1000 lekë",
                 reja: "1,000 ALL (të reja)",
                 unit: "për seancë (60 min)",
                 details: "3 seanca në javë (semestri i shkurtër). Grupi 1-3 persona (60 min). Për studentët e UMT, UT, UPT, UBT dhe universiteteve private."
@@ -862,7 +865,6 @@
 
             document.getElementById('calcDetailsText').innerText = program.details;
             document.getElementById('calcDisplayVjetra').innerText = program.vjetra;
-            document.getElementById('calcDisplayReja').innerText = program.reja;
             document.getElementById('calcDisplayUnit').innerText = program.unit;
         }
 
